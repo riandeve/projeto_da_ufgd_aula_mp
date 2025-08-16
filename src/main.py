@@ -1,4 +1,4 @@
-def imprimir(linguagem_programação):
- print(f'Vamos aprender a programar na linguagem {linguagem_programação}.')
+from controle.alocacao_equipamentos import executar
+
 if __name__ == '__main__':
- imprimir('Python')
+    executar()
