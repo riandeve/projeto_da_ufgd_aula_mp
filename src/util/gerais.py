@@ -7,7 +7,6 @@ def compacta_nome(nome):
 def imprimir_objetos(cabecalho, objetos):
     print('\n' + cabecalho)
     for indice, objeto in enumerate(objetos):
-        # A string de formato agora é uma string normal, sem o 'f'
         formato = '{:<5} {}'
         print(formato.format(str(indice + 1) + ' -', str(objeto)))
 
