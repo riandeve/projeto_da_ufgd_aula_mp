@@ -1,6 +1,5 @@
 from datetime import date
 
-
 class Data:
     def __init__(self, dia, mês, ano):
         self.dia = dia

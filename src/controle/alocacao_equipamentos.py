@@ -1,7 +1,8 @@
-from util.gerais import imprimir_objetos
-from util.data import Data
-from entidades.empreiteiro import Empreiteiro, inserir_empreiteiro, get_empreiteiros
-from entidades.equipamento import Equipamento, inserir_equipamento, get_equipamentos
+from src.util.gerais import imprimir_objetos
+from src.util.data import Data
+from src.entidades.empreiteiro import Empreiteiro, get_empreiteiros, inserir_empreiteiro
+from src.entidades.equipamento import Equipamento, get_equipamentos, inserir_equipamento
+
 
 def cadastrar_equipamentos():
     inserir_equipamento(Equipamento("Furadeira", "Ferramenta Elétrica", 20, False))
