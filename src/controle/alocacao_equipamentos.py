@@ -1,38 +1,32 @@
 from util.gerais import imprimir_objetos
 from util.data import Data
-from entidades.equipamento import Equipamento, inserir_equipamento, get_equipamentos
 from entidades.empreiteiro import Empreiteiro, inserir_empreiteiro, get_empreiteiros
-from entidades.obra import Obra, inserir_obra, get_obras
-
+from entidades.equipamento import Equipamento, inserir_equipamento, get_equipamentos
 
 def cadastrar_equipamentos():
-    inserir_equipamento(Equipamento('Betoneira', 'betoneira', 150.00, True))
-    inserir_equipamento(Equipamento('Furadeira', 'furadeira', 75.50, False))
-    inserir_equipamento(Equipamento('Serra', 'serra', 120.00, True))
-    inserir_equipamento(Equipamento('Martelo', 'martelo', 250.00, True))
-
+    inserir_equipamento(Equipamento("Furadeira", "Ferramenta Elétrica", 20, False))
+    inserir_equipamento(Equipamento("Lixadeira", "Ferramenta Elétrica", 18, True))
+    inserir_equipamento(Equipamento("Betoneira", "Construção", 320, False))
+    inserir_equipamento(Equipamento("Andaime", "Construção", 200, True))
+    inserir_equipamento(Equipamento("Capacete de proteção", "Segurança", 1, False))
+    inserir_equipamento(Equipamento("Cinto de segurança", "Segurança", 3, False))
+    inserir_equipamento(Equipamento("Carrinho de mão", "Transporte", 15, True))
+    inserir_equipamento(Equipamento("Empilhadeira", "Transporte", 3500, True))
+    inserir_equipamento(Equipamento("Trena", "Medição", 0.5, False))
+    inserir_equipamento(Equipamento("Nível a laser", "Medição", 2, True))
+    inserir_equipamento(Equipamento("Serra circular", "Corte", 12, False))
+    inserir_equipamento(Equipamento("Esmerilhadeira", "Corte", 8, True))
+    inserir_equipamento(Equipamento("Guincho", "Elevação", 500, True))
+    inserir_equipamento(Equipamento("Talha manual", "Elevação", 50, False))
 
 def cadastrar_empreiteiros():
-    inserir_empreiteiro(
-        Empreiteiro('Construções Rian Ltda.', '(67) 9999-8888', 'contato@gmail.com', 'Rua dos Pedreiros, 123'))
-    inserir_empreiteiro(Empreiteiro('Serviços Mestre', '(67) 8888-7777', 'mestre@gmail.com', 'Avenida da Obra, 456'))
-    inserir_empreiteiro(Empreiteiro('Construção Civil G-3', '(67) 7777-6666', 'contato@gmail.com', 'Rua da Inovação, 789'))
+    inserir_empreiteiro(Empreiteiro("Construções Dourados Ltda.", "(67) 9999-8888", "contato.dourados@gmail.com", "Rua dos Pedreiros, 123"))
+    inserir_empreiteiro(Empreiteiro("Serviços de Telecomunicação", "(67) 8888-7777", "tele.servicos@gmail.com", "Avenida da Obra, 456"))
+    inserir_empreiteiro(Empreiteiro("Construção Civil", "(67) 7777-6666", "contato.g3@gmail.com", "Rua da Inovação, 789"))
 
-
-def cadastrar_obras():
-    inserir_obra(Obra('Residencial Solar', 'Rua das Flores, 100', Data(10, 8, 2025), Data(10, 12, 2025)))
-    inserir_obra(Obra('Comercial Alfa', 'Avenida Principal, 500', Data(1, 9, 2025), Data(1, 3, 2026)))
-    inserir_obra(Obra('Praça do Sol Nascente', 'Praça Central', Data(20, 7, 2025), Data(20, 10, 2025)))
-
-
-def executar():
-    print('\n----- PROJETO: Alocacao de Equipamentos da Construcao Civil -----')
-
+if __name__ == '__main__':
+    print('\nAlocação de Equipamentos da Construção Civil')
     cadastrar_equipamentos()
-    imprimir_objetos('EQUIPAMENTOS', get_equipamentos())
-
+    imprimir_objetos('Equipamento: nome, tipo, valor, disponível', get_equipamentos())
     cadastrar_empreiteiros()
-    imprimir_objetos('EMPREITEIROS', get_empreiteiros())
-
-    cadastrar_obras()
-    imprimir_objetos('OBRAS', get_obras())
+    imprimir_objetos('Empreiteiro: nome, telefone, email, endereço', get_empreiteiros())
