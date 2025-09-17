@@ -1,4 +1,4 @@
-empreiteiros = []
+empreiteiros = {}
 
 class Empreiteiro:
     def __init__(self, nome, telefone, email, endereço):
@@ -14,4 +14,8 @@ def get_empreiteiros():
     return empreiteiros
 
 def inserir_empreiteiro(empreiteiro):
-    empreiteiros.append(empreiteiro)
+    nome = empreiteiro.nome
+    if nome not in empreiteiros.keys():
+        empreiteiros[nome] = empreiteiro
+    else:
+        print(f'Empreiteiro {nome} já tem cadastro.')

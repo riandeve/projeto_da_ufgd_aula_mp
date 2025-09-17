@@ -10,3 +10,15 @@ def imprimir_objetos(cabeçalho, objetos):
         formato = '{:<5} {}'
         print(formato.format(str(indice + 1) + ' -', str(objeto)))
 
+def ordenar_objetos_por_um_atributo(objetos, comparador):
+    objetos_ordenados = []
+    for objeto_desordenado in objetos:
+        ordenou_objeto = False
+        for indice, objeto_ordenado in enumerate(objetos_ordenados):
+            if comparador(objeto_desordenado, objeto_ordenado):
+                objetos_ordenados.insert(indice, objeto_desordenado)
+                ordenou_objeto = True
+                break
+        if not ordenou_objeto:
+            objetos_ordenados.append(objeto_desordenado)
+    return objetos_ordenados

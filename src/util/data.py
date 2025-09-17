@@ -3,7 +3,7 @@ from datetime import date
 class Data:
     def __init__(self, dia, mês, ano):
         self.dia = dia
-        self.mes = mês
+        self.mês = mês
         self.ano = ano
 
     def __str__(self):
@@ -24,7 +24,7 @@ class Data:
             dia_atual_str, mês_atual_str, ano_atual_str = date.today().strftime("%d/%m/%Y").split('/')
             dia_referencia, mês_referencia, ano_referencia = int(dia_atual_str), int(mês_atual_str), int(ano_atual_str)
         else:
-            dia_referencia, mês_referencia, ano_referencia = data_referencia.dia, data_referencia.mes, data_referencia.ano
+            dia_referencia, mês_referencia, ano_referencia = data_referencia.dia, data_referencia.mês, data_referencia.ano
 
         idade = ano_referencia - self.ano
 
@@ -32,3 +32,35 @@ class Data:
             idade -= 1
 
         return idade
+
+    def __eq__(self, data):
+        if self.dia == data.dia and self.mês == data.mês and self.ano == data.ano: return True
+        return False
+
+    def __ne__(self, data): return not self == data
+
+    def __gt__(self, data):
+        if self.ano > data.ano: return True
+        elif self.ano < data.ano: return False
+        if self.mês > data.mês: return True
+        elif self.mês < data.mês: return False
+        if self.dia > data.dia: return True
+        elif self.dia < data.dia: return False
+        return False
+
+    def __lt__(self, data):
+        if self.ano < data.ano: return True
+        elif self.ano > data.ano: return False
+        if self.mês < data.mês: return True
+        elif self.mês > data.mês: return False
+        if self.dia < data.dia: return True
+        elif self.dia > data.dia: return False
+        return False
+
+    def __ge__(self, data):
+        if self < data: return False
+        else: return True
+
+    def __le__(self, data):
+        if self > data: return False
+        else: return True
