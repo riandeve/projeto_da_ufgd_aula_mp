@@ -6,6 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bb7932bf-24f7-45d6-888c-ea03de4ce7f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MP - Tutorial 2 - Entidade de Relacionamento Múltiplo e Ordenação por um Atributo.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/espec.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/espec.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entidades/equipamento.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/entidades/equipamento.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +39,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.alocacao_equipamentos.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Administrador/OneDrive/Documentos/projeto_da_ufgd_aula_mp&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.alocacao_equipamentos.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/GIS TI/Desktop/projeto_da_ufgd_aula_mp"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="alocacao_equipamentos" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MP - Entrega 2 - Rian Ruela Ribeiro" />

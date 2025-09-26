@@ -24,4 +24,4 @@ def inserir_equipamento(equipamento):
     if nome  not in equipamentos.keys():
         equipamentos[nome] = equipamento
     else:
-        print(f'Equipamento {nome} já tem cadastro.') 
+        print(f'Equipamento {nome} já tem cadastro.')
