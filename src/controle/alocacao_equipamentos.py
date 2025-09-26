@@ -55,27 +55,26 @@ def cadastrar_obras():
 
 
 if __name__ == '__main__':
-    print('\nAlocação de Equipamentos da Construção Civil')
-
     cadastrar_equipamentos()
-    imprimir_objetos('Equipamento: nome, tipo, valor, disponível', get_equipamentos().values())
-
     cadastrar_empreiteiros()
-    imprimir_objetos('Empreiteiro: nome, telefone, email, endereço', get_empreiteiros().values())
-
     cadastrar_obras()
-    imprimir_objetos('Obra: id, descrição, datas e empreiteiro', get_obras().values())
 
-    print("\nEquipamentos ordenados por valor (decrescente):")
-    equipamentos_ordenados = ordenar_objetos_por_um_atributo(
-        objetos=get_equipamentos().values(),
-        comparador=lambda e1, e2: e1.valor > e2.valor
-    )
-    imprimir_objetos('Equipamento: nome, tipo, valor, disponível', equipamentos_ordenados)
+    imprimir_objetos('Obra : id, descrição, datas, empreiteiro', get_obras().values())
+    imprimir_objetos('Empreiteiros: nome, telefone, email, endereço', get_empreiteiros().values())
 
-    print("\nEmpreiteiros ordenados por valor (decrescente):")
-    empreiteiro_ordenados = ordenar_objetos_por_um_atributo(
-        objetos=get_empreiteiros().values(),
-        comparador=lambda e1, e2: e1.nome > e2.nome
-    )
-    imprimir_objetos('Empreiteiro: nome, telefone, email, endereço', empreiteiro_ordenados)
+
+    for obra in get_obras().values():
+        print('\n\n=== ' + obra.descrição + ' ===')
+
+
+        equipamentos_obra = obra.equipamentos.values()
+        imprimir_objetos('Equipamento : nome, tipo, valor, status', equipamentos_obra)
+
+
+        equipamentos_ordenados = ordenar_objetos_por_um_atributo(
+            objetos=equipamentos_obra,
+            comparador=lambda e1, e2: (e1.disponivel and not e2.disponivel)
+        )
+        imprimir_objetos('Equipamento : nome, tipo, valor, status -- disponíveis primeiro',
+                         equipamentos_ordenados)
+

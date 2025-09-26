@@ -11,7 +11,7 @@ class Equipamento:
         self.disponivel = disponivel
 
     def __str__(self):
-        disponivel_str = 'disponível' if self.disponivel else 'indisponível'
+        disponivel_str = 'disponível' if self.disponivel else '     '
         return f'{self.nome:<25} {self.tipo:<25} R$ {self.valor:<10.2f} {disponivel_str:<15}'
 
 
