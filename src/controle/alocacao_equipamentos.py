@@ -3,6 +3,8 @@ from src.util.data import Data
 from src.entidades.empreiteiro import Empreiteiro, get_empreiteiros, inserir_empreiteiro
 from src.entidades.equipamento import Equipamento, get_equipamentos, inserir_equipamento
 from src.entidades.obra import Obra, get_obras, inserir_obra
+from src.entidades.equipamento import get_equipamentos
+
 
 
 def cadastrar_equipamentos():
@@ -35,24 +37,23 @@ def cadastrar_obras():
     empreiteiros = get_empreiteiros()
     equipamentos = get_equipamentos()
 
-
     obra1 = Obra(837, "Construção do Edifício Sol", Data(2, 3, 2023),
                  empreiteiro=empreiteiros["Construções Dourados Ltda."])
-    obra1.inserir_equipamentos(["Betoneira", "Andaime", "Guincho", "Furadeira"])
+    for nome_eq in ["Betoneira", "Andaime", "Guincho", "Furadeira"]:
+        obra1.inserir_equipamento(equipamentos[nome_eq])
     inserir_obra(obra1)
-
 
     obra2 = Obra(524, "Reforma da Escola Municipal", Data(15, 4, 2023),
                  empreiteiro=empreiteiros["Serviços de Telecomunicação"])
-    obra2.inserir_equipamentos(["Lixadeira", "Capacete de proteção", "Cinto de segurança", "Nível a laser"])
+    for nome_eq in ["Lixadeira", "Capacete de proteção", "Cinto de segurança", "Nível a laser"]:
+        obra2.inserir_equipamento(equipamentos[nome_eq])
     inserir_obra(obra2)
 
-
-    obra3 = Obra(796, "Shopping novo da cidade", Data(16, 9,2024),
-                empreiteiro=empreiteiros["Construção Civil"])
-    obra3.inserir_equipamentos(["Carrinho de mão", "Trena","Guincho"])
+    obra3 = Obra(796, "Shopping novo da cidade", Data(16, 9, 2024),
+                 empreiteiro=empreiteiros["Construção Civil"])
+    for nome_eq in ["Carrinho de mão", "Trena", "Guincho"]:
+        obra3.inserir_equipamento(equipamentos[nome_eq])
     inserir_obra(obra3)
-
 
 if __name__ == '__main__':
     cadastrar_equipamentos()
@@ -62,19 +63,17 @@ if __name__ == '__main__':
     imprimir_objetos('Obra : id, descrição, datas, empreiteiro', get_obras().values())
     imprimir_objetos('Empreiteiros: nome, telefone, email, endereço', get_empreiteiros().values())
 
-
     for obra in get_obras().values():
-        print('\n\n=== ' + obra.descrição + ' ===')
+        print('\n\n=== ' + obra.descricao + ' ===')  # ⚡ atributo sem acento
 
-
-        equipamentos_obra = obra.equipamentos.values()
+        equipamentos_obra = obra.listar_equipamentos()  # ou obra.equipamentos.values()
         imprimir_objetos('Equipamento : nome, tipo, valor, status', equipamentos_obra)
-
 
         equipamentos_ordenados = ordenar_objetos_por_um_atributo(
             objetos=equipamentos_obra,
             comparador=lambda e1, e2: (e1.disponivel and not e2.disponivel)
         )
-        imprimir_objetos('Equipamento : nome, tipo, valor, status -- disponíveis primeiro',
-                         equipamentos_ordenados)
-
+        imprimir_objetos(
+            'Equipamento : nome, tipo, valor, status -- disponíveis primeiro',
+            equipamentos_ordenados
+        )
