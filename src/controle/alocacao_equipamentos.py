@@ -64,9 +64,9 @@ if __name__ == '__main__':
     imprimir_objetos('Empreiteiros: nome, telefone, email, endereço', get_empreiteiros().values())
 
     for obra in get_obras().values():
-        print('\n\n=== ' + obra.descricao + ' ===')  # ⚡ atributo sem acento
+        print('\n\n=== ' + obra.descricao + ' ===')
 
-        equipamentos_obra = obra.listar_equipamentos()  # ou obra.equipamentos.values()
+        equipamentos_obra = obra.listar_equipamentos()
         imprimir_objetos('Equipamento : nome, tipo, valor, status', equipamentos_obra)
 
         equipamentos_ordenados = ordenar_objetos_por_um_atributo(

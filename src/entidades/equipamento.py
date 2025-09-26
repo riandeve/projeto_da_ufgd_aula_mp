@@ -20,5 +20,7 @@ def get_equipamentos():
 
 
 def inserir_equipamento(equipamento):
-    if equipamento.nome not in equipamentos:
-        equipamentos[equipamento.nome] = equipamento
+    nome = equipamento.nome
+    if nome  not in equipamentos.keys():
+        equipamentos[nome] = equipamento
+

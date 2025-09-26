@@ -43,6 +43,7 @@ def get_obras():
     return obras
 
 def inserir_obra(obra):
-    if obra.id not in obras:
-        obras[obra.id] = obra
+    id = obra.id
+    if id  not in obras.keys():
+        obras[id] = obra
 
