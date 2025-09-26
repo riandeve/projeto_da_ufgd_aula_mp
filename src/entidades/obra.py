@@ -46,4 +46,5 @@ def inserir_obra(obra):
     id = obra.id
     if id  not in obras.keys():
         obras[id] = obra
-
+    else:
+        print(f'Obra {id} já tem cadastro.')
