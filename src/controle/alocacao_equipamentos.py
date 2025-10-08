@@ -4,6 +4,11 @@ from src.entidades.empreiteiro import Empreiteiro, get_empreiteiros, inserir_emp
 from src.entidades.equipamento import Equipamento, get_equipamentos, inserir_equipamento
 from src.entidades.obra import Obra, get_obras, inserir_obra
 from src.entidades.equipamento import get_equipamentos
+from src.entidades.contrato import criar_contrato, get_contratos, get_contratos_obra
+from src.util.gerais import ordenar_objetos_por_um_atributo, ordenar_objetos_por_dois_atributos
+from src.util.data import Data
+
+
 
 
 
@@ -55,13 +60,24 @@ def cadastrar_obras():
         obra3.inserir_equipamento(equipamentos[nome_eq])
     inserir_obra(obra3)
 
+def cadastrar_contratos():
+    criar_contrato(837, "Construções Dourados Ltda.", "Betoneira", 50000, Data(1, 5, 2023), 90)
+    criar_contrato(837, "Construções Dourados Ltda.", "Andaime", 25000, Data(1, 5, 2023), 90)
+    criar_contrato(524, "Serviços de Telecomunicação", "Nível a laser", 15000, Data(10, 6, 2023), 60)
+    criar_contrato(524, "Serviços de Telecomunicação", "Cinto de segurança", 3000, Data(10, 6, 2023), 60)
+    criar_contrato(796, "Construção Civil", "Carrinho de mão", 12000, Data(15, 7, 2024), 120)
+    criar_contrato(796, "Construção Civil", "Guincho", 50000, Data(15, 7, 2024), 120)
+
+
 if __name__ == '__main__':
     cadastrar_equipamentos()
     cadastrar_empreiteiros()
     cadastrar_obras()
+    cadastrar_contratos()
 
     imprimir_objetos('Obra : id, descrição, datas, empreiteiro', get_obras().values())
     imprimir_objetos('Empreiteiros: nome, telefone, email, endereço', get_empreiteiros().values())
+    imprimir_objetos('Contratos: id, valor, data_assinatura, obra, empreiteiro', get_contratos())
 
     for obra in get_obras().values():
         print('\n\n=== ' + obra.descricao + ' ===')
@@ -71,9 +87,30 @@ if __name__ == '__main__':
 
         equipamentos_ordenados = ordenar_objetos_por_um_atributo(
             objetos=equipamentos_obra,
-            comparador=lambda e1, e2: (e1.disponivel and not e2.disponivel)
+            comparador=lambda e1, e2: (e1.valor > e2.valor)
         )
         imprimir_objetos(
-            'Equipamento : nome, tipo, valor, status -- disponíveis primeiro',
+            'Equipamento : nome, tipo, valor, status -- Valor ordenado',
             equipamentos_ordenados
         )
+    print('\n\n=== Contratos por Obra ===')
+    for obra in get_obras().values():
+        print('\nObra:', obra.descricao)
+        contratos_obra = get_contratos_obra(obra.id)
+        imprimir_objetos('Contrato : obra, empreiteiro, equipamento, valor, data, prazo', contratos_obra)
+
+        contratos_ordenados_valor = ordenar_objetos_por_um_atributo(
+            objetos=contratos_obra,
+            comparador=lambda c1, c2: c1.valor > c2.valor
+        )
+
+        imprimir_objetos('Contratos -- ordem decrescente de valor', contratos_ordenados_valor)
+
+        contratos_ordenados_dois = ordenar_objetos_por_dois_atributos(
+            objetos=contratos_obra,
+            atributo1=lambda c: c.valor,
+            atributo2=lambda c: c.prazo,
+            ordenação_decrescente=True
+        )
+
+        imprimir_objetos('Contratos -- ordem decrescente de valor e prazo', contratos_ordenados_dois)

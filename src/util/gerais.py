@@ -22,3 +22,25 @@ def ordenar_objetos_por_um_atributo(objetos, comparador):
         if not ordenou_objeto:
             objetos_ordenados.append(objeto_desordenado)
     return objetos_ordenados
+def ordenar_objetos_por_dois_atributos(objetos, atributo1, atributo2, ordenação_decrescente):
+    objetos_ordenados_atributo1 = list(objetos)
+    objetos_ordenados_atributo1.sort(key=atributo1, reverse=ordenação_decrescente)
+    objetos_ordenados_atributo1_atributo2 = []
+    último_atributo1 = atributo1(objetos_ordenados_atributo1[0])
+    objetos_mesmo_atributo1 = []
+
+    for objeto in objetos_ordenados_atributo1:
+        if atributo1(objeto) == último_atributo1:
+            objetos_mesmo_atributo1.append(objeto)
+        else:
+            objetos_mesmo_atributo1.sort(key=atributo2, reverse=ordenação_decrescente)
+            for objeto_mesmo_atributo1 in objetos_mesmo_atributo1:
+                objetos_ordenados_atributo1_atributo2.append(objeto_mesmo_atributo1)
+            objetos_mesmo_atributo1 = [objeto]
+            último_atributo1 = atributo1(objeto)
+
+    objetos_mesmo_atributo1.sort(key=atributo2, reverse=ordenação_decrescente)
+    for objeto_mesmo_atributo1 in objetos_mesmo_atributo1:
+        objetos_ordenados_atributo1_atributo2.append(objeto_mesmo_atributo1)
+
+    return objetos_ordenados_atributo1_atributo2
