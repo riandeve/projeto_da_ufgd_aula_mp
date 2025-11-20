@@ -28,9 +28,9 @@ class Obra:
         return self.equipamentos.values()
 
     def __str__(self):
-        data_fim_str = str(self.data_fim) if self.data_fim else '---'
-        empreiteiro_str = self.empreiteiro.nome if self.empreiteiro else '---'
-        formato = '{:<12} {:<35} {:<12} {:<12} {:<25}'
+        data_fim_str = str(self.data_fim) if self.data_fim else '   '
+        empreiteiro_str = self.empreiteiro.nome if self.empreiteiro else '  '
+        formato = '{:<7} {:<31} {:<12} {:<0.1} {:<1}'
         return formato.format(
             self.id,
             self.descricao[:34],

@@ -8,7 +8,7 @@ class Empreiteiro:
         self.endereço = endereço
 
     def __str__(self):
-        return f'{self.nome:<30} {self.telefone:<20} {self.email:<30} {self.endereço:<25}'
+        return f'{self.nome:<31} {self.telefone:<18} {self.email:<30} {self.endereço:<30}'
 
 def get_empreiteiros():
     return empreiteiros

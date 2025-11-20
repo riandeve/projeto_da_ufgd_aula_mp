@@ -1,0 +1,76 @@
+{
+    "empreiteiros": [
+        {
+            "nome": "Construções Dourados Ltda.",
+            "telefone": "(67) 9999-8888",
+            "email": "contato.dourados@gmail.com",
+            "endereco": "Rua dos Pedreiros, 123"
+        },
+        {
+            "nome": "Serviços de Telecomunicação",
+            "telefone": "(67) 8888-7777",
+            "email": "tele.servicos@gmail.com",
+            "endereco": "Avenida da Obra, 456"
+        },
+        {
+            "nome": "Construção Civil",
+            "telefone": "(67) 7777-6666",
+            "email": "contato.g3@gmail.com",
+            "endereco": "Rua da Inovação, 789"
+        }
+    ],
+
+    "equipamentos": [
+        {"nome": "Furadeira", "tipo": "Ferramenta Elétrica", "valor": 50, "peso": 4.0, "disponivel": false},
+        {"nome": "Lixadeira", "tipo": "Ferramenta Elétrica", "valor": 20, "peso": 4.0, "disponivel": true},
+        {"nome": "Betoneira", "tipo": "Construção", "valor": 320, "peso": 180.0, "disponivel": false},
+        {"nome": "Andaime", "tipo": "Construção", "valor": 320, "peso": 50.0, "disponivel": true},
+        {"nome": "Capacete de proteção", "tipo": "Segurança", "valor": 1, "peso": 0.8, "disponivel": false},
+        {"nome": "Cinto de segurança", "tipo": "Segurança", "valor": 3, "peso": 1.2, "disponivel": false},
+        {"nome": "Carrinho de mão", "tipo": "Transporte", "valor": 15, "peso": 4.0, "disponivel": true},
+        {"nome": "Empilhadeira", "tipo": "Transporte", "valor": 3500, "peso": 1800.0, "disponivel": true},
+        {"nome": "Trena", "tipo": "Medição", "valor": 1, "peso": 0.3, "disponivel": false},
+        {"nome": "Nível a laser", "tipo": "Medição", "valor": 12, "peso": 6.0, "disponivel": true},
+        {"nome": "Serra circular", "tipo": "Corte", "valor": 12, "peso": 6.0, "disponivel": false},
+        {"nome": "Esmerilhadeira", "tipo": "Corte", "valor": 8, "peso": 6.0, "disponivel": true},
+        {"nome": "Guincho", "tipo": "Elevação", "valor": 500, "peso": 220.0, "disponivel": true},
+        {"nome": "Talha manual", "tipo": "Elevação", "valor": 50, "peso": 15.0, "disponivel": false},
+        {"nome": "Escavadeira hidráulica", "tipo": "Movimentação de terra", "valor": 600, "peso": 6.0, "disponivel": true},
+        {"nome": "Bomba de concreto", "tipo": "Concretagem", "valor": 300, "peso": 3.5, "disponivel": true},
+        {"nome": "Geradores de energia", "tipo": "Equipamentos de apoio", "valor": 300, "peso": 6.0, "disponivel": false},
+        {"nome": "Containers de obra", "tipo": "Equipamentos de apoio", "valor": 1000, "peso": 10.0, "disponivel": false}
+    ],
+
+    "obras": [
+        {
+            "id": 837,
+            "descricao": "Construção do Edifício Sol",
+            "data": "02/03/2023",
+            "empreiteiro": "Construções Dourados Ltda.",
+            "equipamentos": ["Betoneira", "Andaime", "Guincho", "Furadeira", "Escavadeira hidráulica", "Geradores de energia", "Containers de obra"]
+        },
+        {
+            "id": 524,
+            "descricao": "Reforma da Escola Municipal",
+            "data": "15/04/2023",
+            "empreiteiro": "Serviços de Telecomunicação",
+            "equipamentos": ["Lixadeira", "Capacete de proteção", "Cinto de segurança", "Nível a laser", "Andaime", "Esmerilhadeira", "Trena"]
+        },
+        {
+            "id": 796,
+            "descricao": "Shopping novo da cidade",
+            "data": "16/09/2024",
+            "empreiteiro": "Construção Civil",
+            "equipamentos": ["Carrinho de mão", "Trena", "Guincho", "Furadeira", "Talha manual", "Bomba de concreto"]
+        }
+    ],
+
+    "contratos": [
+        {"obra_id": 837, "empreiteiro": "Construções Dourados Ltda.", "equipamento": "Betoneira", "valor": 50000, "data": "01/05/2023", "prazo": 90},
+        {"obra_id": 837, "empreiteiro": "Construções Dourados Ltda.", "equipamento": "Andaime", "valor": 25000, "data": "01/05/2023", "prazo": 90},
+        {"obra_id": 524, "empreiteiro": "Serviços de Telecomunicação", "equipamento": "Nível a laser", "valor": 15000, "data": "10/06/2023", "prazo": 60},
+        {"obra_id": 524, "empreiteiro": "Serviços de Telecomunicação", "equipamento": "Cinto de segurança", "valor": 3000, "data": "10/06/2023", "prazo": 60},
+        {"obra_id": 796, "empreiteiro": "Construção Civil", "equipamento": "Carrinho de mão", "valor": 12000, "data": "15/07/2024", "prazo": 120},
+        {"obra_id": 796, "empreiteiro": "Construção Civil", "equipamento": "Guincho", "valor": 50000, "data": "15/07/2024", "prazo": 120}
+    ]
+}

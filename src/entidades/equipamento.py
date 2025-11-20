@@ -1,18 +1,20 @@
 equipamentos = {}
 
 class Equipamento:
-    def __init__(self, nome, tipo, valor, disponivel):
+    def __init__(self, nome, tipo, valor, peso, disponivel):
         self.nome = nome
         self.tipo = tipo if tipo in (
             'Ferramenta Elétrica', 'Construção', 'Segurança',
-            'Transporte', 'Medição', 'Corte', 'Elevação'
+            'Transporte', 'Medição', 'Corte', 'Elevação',
+            'Movimentação de terra', 'Concretagem', 'Equipamentos de apoio'
         ) else 'indefinido'
         self.valor = valor
+        self.peso = peso
         self.disponivel = disponivel
 
     def __str__(self):
-        disponivel_str = 'disponível' if self.disponivel else '     '
-        return f'{self.nome:<25} {self.tipo:<25} R$ {self.valor:<10.2f} {disponivel_str:<15}'
+        disponivel_str = 'disponível' if self.disponivel else ' '
+        return f'{self.nome:<26} {self.tipo:<25} R$ {self.valor:<11.2f} {self.peso:<6}kg  {disponivel_str:>13} '
 
 
 def get_equipamentos():
@@ -21,7 +23,7 @@ def get_equipamentos():
 
 def inserir_equipamento(equipamento):
     nome = equipamento.nome
-    if nome  not in equipamentos.keys():
+    if nome not in equipamentos:
         equipamentos[nome] = equipamento
     else:
         print(f'Equipamento {nome} já tem cadastro.')
